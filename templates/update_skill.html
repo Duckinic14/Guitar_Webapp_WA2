@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Update Skill Level</h2>
+<form method="post" action="{{ url_for('update_skill') }}">
+    <label for="user_id">Select Member</label>
+    <select id="user_id" name="user_id" required>
+        {% for member in members %}
+            <option value="{{ member.id }}">{{ member.username }} - {{ member.instrument }} - {{ member.section }}</option>
+        {% endfor %}
+    </select>
+
+    <label for="skill_level">New Skill Level</label>
+    <input type="number" id="skill_level" name="skill_level" min="1" max="5" required>
+
+    <button type="submit">Update Skill Level</button>
+</form>
+{% endblock %}

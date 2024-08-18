@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Members</h2>
+<table>
+    <tr>
+        <th>Username</th>
+        <th>Role</th>
+        <th>Instrument</th>
+        <th>Section</th>
+        <th>Skill Level</th>
+        <!-- {% if session.get('role') == 'section_leader' %}
+        <th>Update Skill</th> -->
+        {% endif %}
+    </tr>
+    {% for member in members %}
+    <tr>
+        <td>{{ member.username }}</td>
+        <td>{{ member.role }}</td>
+        <td>{{ member.instrument }}</td>
+        <td>{{ member.section }}</td>
+        <td>{{ member.skill_level }}</td>
+        <!-- {% if session.get('role') == 'section_leader' %}
+        <td>
+            <form method="post" action="{{ url_for('update_skill') }}">
+                <input type="hidden" name="user_id" value="{{ member.id }}">
+                <input type="number" name="skill_level" min="1" max="10" value="{{ member.skill_level }}">
+                <button type="submit">Update</button>
+            </form>
+        </td>
+        {% endif %} -->
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

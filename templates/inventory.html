@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Inventory</h2>
+<table>
+    <tr>
+        <th>Item Name</th>
+        <th>Quantity</th>
+    </tr>
+    {% for item in inventory_items %}
+    <tr>
+        <td>{{ item.item_name }}</td>
+        <td>{{ item.quantity }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h3>Add New Item</h3>
+<form action="{{ url_for('add_inventory') }}" method="POST">
+    <label for="item_name">Item Name:</label>
+    <input type="text" id="item_name" name="item_name" required>
+    <label for="quantity">Quantity:</label>
+    <input type="number" id="quantity" name="quantity" required>
+    <button type="submit">Add Item</button>
+</form>
+{% endblock %}

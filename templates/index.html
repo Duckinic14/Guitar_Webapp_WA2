@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Welcome to ASR Guitar Ensemble!</h1>
+<hr>
+<h3>Welcome to the official website of the ASR Guitar Ensemble. Use the navigation bar to explore different sections of the site:</h3>
+<ul>
+    <li><a href="{{ url_for('inventory') }}">Inventory</a></li>
+    <li><a href="{{ url_for('members') }}">Members</a></li>
+    <li><a href="{{ url_for('scores') }}">Scores</a></li>
+    <li><a href="{{ url_for('feedback') }}">Feedback</a></li>
+</ul>
+{% endblock %}
